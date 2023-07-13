@@ -18,8 +18,8 @@ function UpdateUser() {
     })
     useEffect(()=>{
         async function getUser(){
-            const user = await axios.get(`http://localhost:8000/api/user-update/${id.user_id}/`)
-            // console.log(user.data);
+            const user = await axios.get(`http://localhost:8000/api/class-userlist/${id.user_id}/`)
+            console.log(user.data);
             setUser(user.data)
         }
         getUser();
@@ -43,9 +43,7 @@ function UpdateUser() {
     }
   return (
     <div className='dashboard-div'>
-        <div className='table-div'>
-            <h1>Update User List </h1>
-        </div>
+       
         <div className='form-contain' >
             <form className='add-user-form' onSubmit={userUpdateForm}>
                 <h2>Update User Here</h2>

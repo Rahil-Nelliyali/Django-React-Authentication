@@ -5,14 +5,9 @@ import { getLocal } from '../helpers/auth';
 import jwt_decode from "jwt-decode"
 import './Navbar.css'
 
-import { SlLogout } from 'react-icons/sl'
-import { CgProfile } from 'react-icons/cg'
-
-
 function Navbar() {
   const {username} = jwt_decode(getLocal())
   const history = useNavigate()
-  const {user,count} = useSelector((state) => state.auth);
   const logout = ()=>{
     localStorage.removeItem('authToken')
     history('/login')

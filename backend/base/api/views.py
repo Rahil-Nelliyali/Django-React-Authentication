@@ -10,7 +10,7 @@ from ..models import User, Notes
 from rest_framework.filters import SearchFilter, OrderingFilter
 
 from rest_framework.generics import ListCreateAPIView
-
+from rest_framework import generics
 
 
 class MyTokenObtainPairSerializer(TokenObtainPairSerializer):
@@ -86,3 +86,9 @@ class classUserList(ListCreateAPIView):
 class Notes(ListCreateAPIView):
     queryset = Notes.objects.all()
     serializer_class = NoteSerializer
+
+
+class userDetails(generics.RetrieveUpdateDestroyAPIView):
+    queryset = User.objects.filter(is_superuser=False)
+    serializer_class = UserSerializer
+

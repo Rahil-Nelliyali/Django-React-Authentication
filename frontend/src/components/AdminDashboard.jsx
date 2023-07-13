@@ -3,10 +3,11 @@ import React, { useEffect, useState } from 'react'
 import { toast } from 'react-hot-toast'
 import {FaEdit} from 'react-icons/fa'
 import {MdDeleteForever} from 'react-icons/md'
-import { Link, useNavigate } from 'react-router-dom'
 import Swal from 'sweetalert2'
 import { Toaster } from 'react-hot-toast';
-
+import { Link } from 'react-router-dom'
+import { BsPersonFillAdd } from 'react-icons/bs'
+import './HomeComponent.css'
 
 
 function AdminDashboard() {
@@ -65,6 +66,8 @@ function AdminDashboard() {
         <Toaster position='top-center' reverseOrder='false' ></Toaster>
         <div className='header-div'>
             <h1>Dashboard</h1>
+            <Link to='/add-user' className='sidebar-items-top'><p><BsPersonFillAdd/> Add User</p></Link>
+
             <input className='user-search' type="text" placeholder='Search User'
             onChange={e => serachUser(e.target.value)}
             />

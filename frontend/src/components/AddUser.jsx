@@ -1,5 +1,7 @@
 import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
+import './Adduser.css'
+
 
 function AddUser() {
     const [username, setUsername] = useState('')
@@ -26,9 +28,7 @@ function AddUser() {
 
   return (
     <div className='dashboard-div'>
-        <div className='table-div'>
-            <h1>Add User</h1>
-        </div>
+      
         <div className='form-contain' >
             <form className='add-user-form' onSubmit={addUser}>
                 <h2>Add New User Here</h2>
