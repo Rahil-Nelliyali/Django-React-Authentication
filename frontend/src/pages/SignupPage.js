@@ -2,6 +2,8 @@ import React, { useState } from 'react'
 import { Link, Navigate, useNavigate } from 'react-router-dom'
 import { Toaster } from 'react-hot-toast';
 import { toast } from "react-hot-toast";
+import { getLocal } from "../helpers/auth";
+import { useEffect } from 'react'
 
 import './LoginPage.js'
 
@@ -11,6 +13,14 @@ function SignupPage() {
   const [password, setPassword] = useState('')
 
   const history = useNavigate()
+
+  useEffect(()=>{
+    // console.log(response);
+    const response = getLocal();
+    if (response) {
+      history('/')
+    }
+  })
 
   const signupSubmit = async (e) => {
     e.preventDefault()

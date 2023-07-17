@@ -8,7 +8,6 @@ import './Userprofle.css'
 
 import { SlUserFollow } from 'react-icons/sl'
 import { AiFillPlusCircle } from  'react-icons/ai'
-import { useNavigate } from 'react-router-dom'
 
 function UserProfile() {
 
@@ -48,32 +47,29 @@ function UserProfile() {
     // }
 
     const updateProfileImage = async (newProfileImage) => {
-        const url = 'http://127.0.0.1:8000/api/class-userlist/7/'; // Replace '7' with the user ID you want to update
+        const url = 'http://127.0.0.1:8000/api/class-userlist/7/'; 
       
         const formData = new FormData();
-        formData.append('profile_img', newProfileImage); // Assuming 'newProfileImage' is a File object or Blob
+        formData.append('profile_img', newProfileImage);
       
         try {
           const response = await fetch(url, {
-            method: 'PATCH', // Use PATCH or PUT based on your backend API's requirements
+            method: 'PUT', 
             body: formData,
           });
       
           if (response.ok) {
             console.log('Profile image updated successfully!');
-            // Handle any further actions or notifications upon successful update
           } else {
             console.error('Failed to update profile image.');
-            // Handle error cases or display error messages to the user
           }
         } catch (error) {
           console.error('Error occurred while updating profile image:', error);
-          // Handle any network or other errors that occurred during the update process
         }
       };
       
   return (
-    // <div className='user-main-div'>
+   
         <div className='sub-section'>
         <div className='sub-one'>
         <img
@@ -85,7 +81,7 @@ function UserProfile() {
         <input
         type="file"
         name="profile_img"
-        onChange={e => setImage(e.target.files[0])} // Assign the file object directly
+        onChange={e => setImage(e.target.files[0])} 
       />
       
           <input type="submit" className='img-upload' value='Upload Image' />
@@ -101,7 +97,7 @@ function UserProfile() {
             </div>
             
         </div>
-    // </div>
+    
   )
 }
 
